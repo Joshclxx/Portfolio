@@ -10,10 +10,9 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
   return (
-    <div className="px-4 md:px-8 lg:px-[120px] mt-5">
-      <nav className="w-full bg-tertiary shadow-md">
-        <div className="flex justify-between items-center px-4 md:px-8 lg:px-[120px] py-4">
-          {/* Logo */}
+    <nav className="w-full bg-tertiary shadow-md sticky top-0 z-50">
+      <div className="px-4 md:px-8 lg:px-[120px]">
+        <div className="flex justify-between items-center py-4">
           <div className="font-bold text-xl">JOSHCLXX</div>
 
           {/* Desktop Menu */}
@@ -40,7 +39,6 @@ const Navbar = () => {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 {isOpen ? (
-                  // X (Close icon)
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -48,7 +46,6 @@ const Navbar = () => {
                     d="M6 18L18 6M6 6l12 12"
                   />
                 ) : (
-                  // Hamburger (Menu icon)
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -69,15 +66,15 @@ const Navbar = () => {
                 key={link.key}
                 href={link.href}
                 className="text-textPrimary hover:text-hover transition-colors"
-                onClick={() => setIsOpen(false)} // close menu on click
+                onClick={() => setIsOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
           </div>
         )}
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 };
 
