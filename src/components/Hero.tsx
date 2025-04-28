@@ -12,7 +12,7 @@ const Hero = () => {
               Hello,
             </p>
             <p className="font-bold text-[36px] md:text-[48px] lg:text-[64px] leading-none hero-2">
-              I'm Joshua
+              I&apos;m Joshua
             </p>
             <p className="font-semibold text-[14px] text-left">
               Fast, easy-to-use React and Next.js sites styled with Tailwind
