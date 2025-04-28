@@ -1,11 +1,15 @@
 import React from "react";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <div className="flex text-center items-center justify-center text-[64px] text-[#E4E7EB]">
-        <p>JOSHCLXX PORTFOLIO</p>
+    <div className="flex flex-col items-center w-full">
+      <Hero />
+      <div className="w-full max-w-[1440px] py-[52px]">
+        <div className="h-[4px] w-full bg-tertiary/80" />
       </div>
+      <About />
     </div>
   );
 }

@@ -4,8 +4,6 @@
   --background: #ffffff;
   --foreground: #171717;
 
-  /* Synced Tailwind color palette as CSS variables */
-
   /* MAIN COLORS */
   --Primary: #2a2f3b;
   --Secondary: #3f4552;
@@ -35,7 +33,38 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), sans-serif;
+  background: var(--background); /* Page Background Color */
+  color: var(--foreground); /* Text Color */
+  font-family: var(--font-sans), sans-serif; /* Text Font */
+}
+
+@theme {
+  /* MAIN COLORS */
+  --color-primary: oklch(0.324 0.027 269.48); /* #2a2f3b */
+  --color-secondary: oklch(0.367 0.025 267.43); /* #3f4552 */
+  --color-tertiary: oklch(0.236 0.027 266.23); /* #1b263b */
+
+  /* ACCENT COLORS */
+  --color-link: oklch(0.833 0.19 163.08); /* #64ffda */
+  --color-hover: oklch(0.839 0.19 302.29); /* #a29bfe */
+
+  /* TEXT COLORS */
+  --color-textPrimary: oklch(0.902 0.012 260.02); /* #e4e7eb */
+  --color-textSecondary: oklch(0.776 0.011 260.6); /* #bcc2c7 */
+
+  /* ADDITIONAL COLORS */
+  --color-gold: oklch(0.731 0.189 97.53); /* #d4af37 */
+  --color-dark-gold: oklch(0.618 0.188 95.91); /* #b8860b */
+  --color-ruby: oklch(0.429 0.231 24.48); /* #9b111e */
+  --color-ruby-dark: oklch(0.343 0.218 22.8); /* #800020 */
+}
+
+/* TEXT GRADIENT */
+.hero {
+  @apply bg-clip-text text-transparent;
+  @apply bg-[linear-gradient(to_bottom,_theme(colors.ruby-dark)_10%,_theme(colors.gold)_70%)];
+}
+.hero-2 {
+  @apply bg-clip-text text-transparent;
+  @apply bg-[linear-gradient(to_top,_theme(colors.ruby-dark)_10%,_theme(colors.gold)_50%)];
 }
