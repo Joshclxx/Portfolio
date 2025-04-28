@@ -27,10 +27,20 @@ const Project = () => {
               POS System
             </p>
             <div className="flex justify-between w-full mt-2 text-[14px]">
-              <a href="#" className="font-semibold underline text-link">
+              <a
+                href="https://pos-system-indol-gamma.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold underline text-link"
+              >
                 <em>Live View Project</em>
               </a>
-              <a href="#" className="font-semibold underline text-link">
+              <a
+                href="https://github.com/Joshclxx/POS-System.git"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold underline text-link"
+              >
                 <em>GitHub Repository</em>
               </a>
             </div>
