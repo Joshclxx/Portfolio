@@ -35,7 +35,7 @@ const Connect = () => {
   return (
     <SectionContainer background="w-full max-w-[1440px] mx-auto mt-2 mb-2">
       <div className="px-4 md:px-8 lg:px-[120px] pb-0">
-        <div className="bg-secondary w-full h-auto rounded-lg px-[160px]">
+        <div className="bg-secondary w-full h-auto rounded-lg px-[60px]">
           <div className="text-center text-textPrimary text-[32px] font-semibold mb-5">
             CONNECT WITH ME
           </div>
