@@ -1,3 +1,4 @@
+// Navbar.tsx
 "use client";
 
 import { useState } from "react";
@@ -8,6 +9,16 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
+
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    const href = e.currentTarget.href;
+    const targetId = href.replace(/.*\#/, "");
+    const elem = document.getElementById(targetId);
+    elem?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
 
   return (
     <nav className="w-full bg-tertiary shadow-md sticky top-0 z-50">
@@ -22,6 +33,7 @@ const Navbar = () => {
                 key={link.key}
                 href={link.href}
                 className="text-textPrimary hover:text-hover transition-colors"
+                onClick={handleScroll}
               >
                 {link.label}
               </Link>
@@ -66,7 +78,10 @@ const Navbar = () => {
                 key={link.key}
                 href={link.href}
                 className="text-textPrimary hover:text-hover transition-colors"
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => {
+                  handleScroll(e);
+                  setIsOpen(false);
+                }}
               >
                 {link.label}
               </Link>
