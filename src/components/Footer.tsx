@@ -24,7 +24,7 @@ const Footer = () => {
                   alt={logo.alt}
                   width={32}
                   height={32}
-                  className="object-contain"
+                  className="object-contain transition-transform transform hover:scale-110"
                 />
               ))}
             </div>
