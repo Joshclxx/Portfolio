@@ -21,11 +21,11 @@ const Connect = () => {
         "5Bg69U6AZRci4hYw9"
       )
       .then(
-        (result) => {
+        () => {
           toast.success("Message set successfully!");
           form.current?.reset();
         },
-        (error) => {
+        () => {
           toast.error("Failed to send message. Please try again.");
           form.current?.reset();
         }
