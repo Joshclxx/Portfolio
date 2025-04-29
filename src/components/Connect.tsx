@@ -22,7 +22,7 @@ const Connect = () => {
       )
       .then(
         () => {
-          toast.success("Message set successfully!");
+          toast.success("Message sent successfully!");
           form.current?.reset();
         },
         () => {
