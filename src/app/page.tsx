@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Project from "@/components/Project";
 import Connect from "@/components/Connect";
+import Work from "@/components/Work";
 
 export default function Home() {
   return (
@@ -19,6 +20,14 @@ export default function Home() {
       <section id="about">
         <About />
       </section>
+
+      <div className="w-full flex justify-center py-[52px]">
+        <div className="h-[4px] w-full max-w-[1209px] bg-tertiary/80" />
+      </div>
+
+      {/* <section id="about"> */}
+      <Work />
+      {/* </section> */}
 
       <div className="w-full flex justify-center py-[52px]">
         <div className="h-[4px] w-full max-w-[1209px] bg-tertiary/80" />

@@ -21,7 +21,7 @@ const About = () => {
             />
           </div>
           <div className="flex flex-col">
-            <p className="font-semibold text-[18px] text-textPrimary text-justify">
+            <p className="font-semibold text-[18px] md:text-[9px] lg:text-[24px] text-textPrimary text-justify">
               I&apos;m a frontend developer who builds lightning‑fast,
               accessible interfaces using React, Next.js, TypeScript, and
               Tailwind CSS. I translate complex requirements into intuitive,
@@ -30,11 +30,15 @@ const About = () => {
             </p>
             <div className="flex items-center gap-2 mt-4">
               <div className="h-[12px] w-[12px] rounded-full bg-link" />
-              <p className="font-semibold text-[18px]">Frontend Development</p>
+              <p className="font-semibold text-[18px] md:text-[9px] lg:text-[24px]">
+                Frontend Development
+              </p>
             </div>
             <div className="flex items-center gap-2">
               <div className="h-[12px] w-[12px] rounded-full bg-link" />
-              <p className="font-semibold text-[18px]">Responsive Design</p>
+              <p className="font-semibold text-[18px] md:text-[9px] lg:text-[24px]">
+                Responsive Design
+              </p>
             </div>
           </div>
         </div>
