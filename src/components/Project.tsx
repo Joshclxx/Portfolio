@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import SectionContainer from "./SectionContainer";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const poweredBy = [
   { src: "/image/react.svg", alt: "React", label: "React" },
@@ -15,7 +18,13 @@ const Project = () => {
       <div className="px-4 md:px-8 lg:px-[120px] pb-0">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
           {/* LEFT - POS SYSTEM */}
-          <div className="bg-secondary w-[341px] flex flex-col items-center p-4 rounded-md">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ amount: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.75 }}
+            className="bg-secondary w-[341px] flex flex-col items-center p-4 rounded-md"
+          >
             <Image
               src="/image/pos-system.svg"
               alt="POS SYSTEM"
@@ -44,7 +53,7 @@ const Project = () => {
                 <em>GitHub Repository</em>
               </a>
             </div>
-          </div>
+          </motion.div>
 
           <div className="flex flex-col gap-4">
             <p className="text-[24px] md:text-[12px] lg:text-[40px] font-semibold text-center">
@@ -52,9 +61,16 @@ const Project = () => {
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {poweredBy.map((logo, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className="container bg-secondary rounded-xl shadow-md shadow-textPrimary/70  flex flex-col items-center p-4 w-[156px] h-[156px] transition-transform transform hover:scale-110 hover:shadow-link/65 hover:bg-hover/45"
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ amount: 0.5 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.5 * index, // ← staggered delay
+                  }}
+                  className="container bg-secondary rounded-xl shadow-md shadow-textPrimary/70 flex flex-col items-center p-4 w-[156px] h-[156px] transition-transform transform hover:scale-110 hover:shadow-link/65 hover:bg-hover/45"
                 >
                   <Image
                     src={logo.src}
@@ -66,7 +82,7 @@ const Project = () => {
                   <p className="text-textPrimary text-[20px] font-semibold mt-2 text-center">
                     {logo.label}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

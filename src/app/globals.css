@@ -32,6 +32,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background); /* Page Background Color */
   color: var(--foreground); /* Text Color */
