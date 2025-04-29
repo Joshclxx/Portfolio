@@ -59,7 +59,7 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ amount: 0.5 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="flex items-center gap-2 mt-4"
+              className="flex items-center gap-2 mt-4 mb-4"
             >
               <div className="h-[12px] w-[12px] rounded-full bg-link" />
               <p className="font-semibold text-[18px] md:text-[9px] lg:text-[24px]">

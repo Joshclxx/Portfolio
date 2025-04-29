@@ -22,7 +22,7 @@ const Hero = () => {
                 scale: { type: "spring", bounce: 0.5 },
               }}
             >
-              <p className="font-bold text-[36px] md:text-[48px] lg:text-[64px] leading-none hero">
+              <p className="font-bold text-[36px] md:text-[48px] lg:text-[64px] leading-none hero mt-5">
                 Hello,
               </p>
             </motion.div>
