@@ -20,7 +20,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full bg-tertiary shadow-md sticky top-2.5 z-50">
+    <nav className="w-full bg-tertiary shadow-md sticky top-0 z-50">
       <div className="px-4 md:px-8 lg:px-[120px]">
         <div className="flex justify-between items-center py-4">
           <div className="font-bold text-xl">JOSHCLXX</div>

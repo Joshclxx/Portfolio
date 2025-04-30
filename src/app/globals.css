@@ -66,9 +66,39 @@ body {
 /* TEXT GRADIENT */
 .hero {
   @apply bg-clip-text text-transparent;
-  @apply bg-[linear-gradient(to_bottom,_theme(colors.ruby-dark)_10%,_theme(colors.gold)_70%)];
+  @apply bg-[linear-gradient(to_bottom,_theme(colors.ruby-dark)_5%,_theme(colors.gold)_50%)];
 }
 .hero-2 {
   @apply bg-clip-text text-transparent;
-  @apply bg-[linear-gradient(to_top,_theme(colors.ruby-dark)_10%,_theme(colors.gold)_50%)];
+  @apply bg-[linear-gradient(to_top,_theme(colors.ruby-dark)_5%,_theme(colors.gold)_50%)];
+}
+
+/* PROJECT CARD */
+.card-container {
+  @apply w-[341px] h-[350px] cursor-pointer;
+  perspective: 1000px;
+}
+
+.card-inner {
+  @apply w-full h-full relative transition-transform duration-700;
+  transform-style: preserve-3d;
+}
+
+.card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  @apply absolute w-full h-full rounded bg-secondary flex flex-col items-center justify-center;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  @apply bg-secondary;
+}
+
+.powered-by-logo {
+  @apply bg-secondary rounded-xl shadow-md flex flex-col items-center justify-center px-4 py-4 transition-transform hover:scale-110 hover:shadow-lg;
 }

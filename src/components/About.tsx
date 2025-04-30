@@ -47,11 +47,11 @@ const About = () => {
             className="flex flex-col"
           >
             <p className="font-semibold text-[18px] md:text-[9px] lg:text-[24px] text-textPrimary text-justify">
-              I&apos;m a frontend developer who builds lightning‑fast,
-              accessible interfaces using React, Next.js, TypeScript, and
-              Tailwind CSS. I translate complex requirements into intuitive,
-              pixel‑perfect experiences—writing clean, maintainable code and
-              fine‑tuning every interaction for peak performance.
+              I&apos;m a frontend developer who builds responsive, accessible
+              interfaces using React, Next.js, TypeScript, and Tailwind CSS. I
+              translate complex requirements into intuitive, pixel‑perfect
+              experiences—writing clean, maintainable code and fine‑tuning every
+              interaction for peak performance.
             </p>
 
             <motion.div

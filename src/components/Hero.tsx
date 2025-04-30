@@ -54,10 +54,9 @@ const Hero = () => {
               whileInView={{ opacity: 1, y1: 0 }}
               viewport={{ amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="font-semibold text-[14px] text-left"
+              className="font-semibold text-[14px] md:text-[16px] lg:text-[20px] text-left"
             >
-              Fast, easy-to-use React and Next.js sites styled with Tailwind
-              CSS.
+              <strong>Frontend Developer</strong> Based in the Philippines.
             </motion.p>
 
             {/* BUTTON */}
@@ -66,13 +65,14 @@ const Hero = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="w-full max-w-[216px] h-[52px] border-2 border-link bg-transparent rounded-lg flex items-center justify-center hover:bg-hover/45 mt-12"
+              className="w-full max-w-[216px] h-[52px] border-1 border-link bg-link/45 rounded-lg flex items-center justify-center hover:bg-transparent mt-12"
             >
               <a
-                href="#connect"
-                className="text-center font-semibold w-full h-full flex items-center justify-center"
+                href="/pdf/cv.pdf"
+                download
+                className="text-center font-bold w-full h-full flex items-center justify-center"
               >
-                CONNECT WITH ME
+                Download CV
               </a>
             </motion.div>
           </div>

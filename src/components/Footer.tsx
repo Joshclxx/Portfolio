@@ -1,10 +1,26 @@
 import Image from "next/image";
 
 const contactMe = [
-  { src: "/icon/github.svg", alt: "GitHub" },
-  { src: "/icon/ig.svg", alt: "Instagram" },
-  { src: "/icon/gmail.svg", alt: "Gmail" },
-  { src: "/icon/in.svg", alt: "LinkedIn" },
+  {
+    src: "/icon/github.svg",
+    alt: "GitHub",
+    href: "https://github.com/Joshclxx",
+  },
+  {
+    src: "/icon/ig.svg",
+    alt: "Instagram",
+    href: "https://www.instagram.com/_jshclxx/profilecard/?igsh=MTNkMDd4cWdhM25uYQ==",
+  },
+  {
+    src: "/icon/gmail.svg",
+    alt: "Gmail",
+    href: "mailto:joshuacolobong11@gmail.com",
+  },
+  {
+    src: "/icon/in.svg",
+    alt: "LinkedIn",
+    href: "https://www.linkedin.com/in/joshua-colobong-28bb20272/",
+  },
 ];
 
 const Footer = () => {
@@ -18,18 +34,23 @@ const Footer = () => {
             </p>
             <div className="flex gap-6">
               {contactMe.map((logo, index) => (
-                <Image
+                <a
                   key={index}
-                  src={logo.src}
-                  alt={logo.alt}
-                  width={32}
-                  height={32}
-                  className="object-contain transition-transform transform hover:scale-110"
-                />
+                  href={logo.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    width={32}
+                    height={32}
+                    className="object-contain transition-transform transform hover:scale-110"
+                  />
+                </a>
               ))}
             </div>
           </div>
-          {/* COPYRIGHT */}
           <div className="text-center pb-4">
             <p className="text-sm text-gray-500">
               Copyright © {new Date().getFullYear()}. All rights reserved. This
