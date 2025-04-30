@@ -68,7 +68,7 @@ const Hero = () => {
               className="w-full max-w-[216px] h-[52px] border-1 border-link bg-link/45 rounded-lg flex items-center justify-center hover:bg-transparent mt-12"
             >
               <a
-                href="/pdf/cv.pdf"
+                href="/pdf/cv-colobong.pdf"
                 download
                 className="text-center font-bold w-full h-full flex items-center justify-center"
               >
