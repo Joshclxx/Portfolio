@@ -52,9 +52,12 @@ const Footer = () => {
             </div>
           </div>
           <div className="text-center pb-4">
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-textPrimary/50">
               Copyright © {new Date().getFullYear()}. All rights reserved. This
-              template created by: Joshclxx
+              template created by:{" "}
+              <span className="text-link/50">
+                <em>Joshclxx</em>
+              </span>
             </p>
           </div>
         </div>

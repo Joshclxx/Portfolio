@@ -65,14 +65,44 @@ const Hero = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="w-full max-w-[216px] h-[52px] border-1 border-link bg-link/45 rounded-lg flex items-center justify-center hover:bg-transparent mt-12"
+              className="flex items-center gap-4 mt-12"
             >
               <a
                 href="/pdf/cv-colobong.pdf"
                 download
-                className="text-center font-bold w-full h-full flex items-center justify-center"
+                className="w-[216px] h-[52px] border-1 border-link bg-link/45 rounded-lg flex items-center justify-center hover:bg-transparent font-bold"
               >
                 Download CV
+              </a>
+
+              {/* GITHUB PROFIL */}
+              <a
+                href="https://github.com/Joshclxx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-[40px] h-[40px] flex items-center justify-center hover:bg-link/45 rounded-full"
+              >
+                <Image
+                  src="/icon/git.svg"
+                  alt="GitHub"
+                  width={42}
+                  height={42}
+                />
+              </a>
+
+              {/* LINKEDIN PROFILE */}
+              <a
+                href="https://www.linkedin.com/in/joshua-colobong-28bb20272/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-[40px] h-[40px] flex items-center justify-center hover:bg-link/45 rounded-full"
+              >
+                <Image
+                  src="/icon/linkedin.svg"
+                  alt="LinkedIn"
+                  width={42}
+                  height={42}
+                />
               </a>
             </motion.div>
           </div>
