@@ -102,7 +102,7 @@ body {
 }
 
 .powered-by-logo {
-  @apply bg-secondary rounded-xl shadow-md flex flex-col items-center justify-center px-4 py-4 transition-transform hover:scale-110 hover:shadow-lg;
+  @apply bg-primary rounded-xl shadow-lg shadow-amber-100/4 flex flex-col items-center justify-center px-4 py-4 transition-transform hover:scale-110 hover:shadow-lg;
 }
 
 /* Hide scrollbar but still allow scrolling */

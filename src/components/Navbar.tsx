@@ -14,10 +14,11 @@ const Navbar = () => {
     const href = e.currentTarget.href;
     const targetId = href.replace(/.*\#/, "");
     const elem = document.getElementById(targetId);
-    elem?.scrollIntoView({
-      behavior: "smooth",
-    });
+    elem?.scrollIntoView({ behavior: "smooth" });
+    setIsOpen(false);
   };
+
+  const mainLinks = NAV_LINKS.slice(0, 3); // Home, About, Connect
 
   return (
     <nav className="w-full bg-tertiary shadow-md sticky top-0 z-50">
@@ -25,22 +26,24 @@ const Navbar = () => {
         <div className="flex justify-between items-center py-4">
           <div className="font-bold text-xl">JOSHCLXX</div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex gap-8">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.key}
-                href={link.href}
-                className="text-textPrimary hover:text-hover transition-colors"
-                onClick={handleScroll}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+          {/* Desktop Main Links (when menu is not open) */}
+          {!isOpen && (
+            <div className="hidden md:flex gap-8 items-center">
+              {mainLinks.map((link) => (
+                <Link
+                  key={link.key}
+                  href={link.href}
+                  className="text-textPrimary hover:text-hover transition-colors"
+                  onClick={handleScroll}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          )}
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          {/* Menu Icon */}
+          <div className="md:flex md:items-center">
             <button onClick={toggleMenu} className="focus:outline-none">
               <svg
                 className="w-6 h-6"
@@ -69,18 +72,15 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu Dropdown */}
+        {/* Full Menu (Mobile + Desktop when open) */}
         {isOpen && (
-          <div className="md:hidden flex flex-col items-center gap-6 py-6">
+          <div className="flex flex-col items-center gap-6 py-6 md:flex">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.key}
                 href={link.href}
                 className="text-textPrimary hover:text-hover transition-colors"
-                onClick={(e) => {
-                  handleScroll(e);
-                  setIsOpen(false);
-                }}
+                onClick={handleScroll}
               >
                 {link.label}
               </Link>
