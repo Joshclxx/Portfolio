@@ -25,7 +25,7 @@ const Project = () => {
           transition={{ duration: 0.4, scale: { type: "spring", bounce: 0.5 } }}
         >
           <p className="text-[24px] md:text-[12px] lg:text-[40px] font-semibold text-center mb-2 lg:mb-[44px]">
-            POWERED BY
+            PROJECT
           </p>
         </motion.div>
 
@@ -82,17 +82,44 @@ const Project = () => {
                 className="card-back"
                 onClick={() => setIsFlipped(!isFlipped)}
               >
-                <p className="text-center text-[16px] px-4">
-                  A POS system that helps businesses streamline sales,
-                  inventory, and reporting. Built with React, Next.js,
-                  TypeScript, and Tailwind CSS.
+                <p className="text-[18px] lg:text-[20px] font-semibold text-center mb-2">
+                  POWERED BY
                 </p>
+
+                <div className="vertical-scroll-container h-[200px] px-2">
+                  <div className="flex flex-col gap-6 items-center">
+                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                      {poweredBy.map((logo, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ amount: 0.5 }}
+                          transition={{ duration: 0.6, delay: 0.2 * index }}
+                          className="powered-by-logo"
+                        >
+                          <div className="relative w-16 h-16 lg:w-20 lg:h-20">
+                            <Image
+                              src={logo.src}
+                              alt={logo.alt}
+                              fill
+                              className="object-contain"
+                            />
+                          </div>
+                          <p className="text-sm lg:text-base font-semibold mt-2 text-center">
+                            {logo.label}
+                          </p>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
 
           {/* POWERED BY LOGOS */}
-          <div className="flex flex-col gap-6">
+          {/* <div className="flex flex-col gap-6">
             <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {poweredBy.map((logo, index) => (
                 <motion.div
@@ -117,7 +144,7 @@ const Project = () => {
                 </motion.div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </SectionContainer>

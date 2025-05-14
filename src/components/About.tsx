@@ -61,7 +61,7 @@ const About = () => {
               transition={{ duration: 0.5, delay: 0.6 }}
               className="flex items-center gap-2 mt-4 mb-4"
             >
-              <div className="h-[12px] w-[12px] rounded-full bg-link" />
+              <div className="h-2 w-2 rounded-full bg-link" />
               <p className="font-semibold text-[18px] md:text-[9px] lg:text-[24px]">
                 Frontend Development
               </p>
@@ -74,7 +74,7 @@ const About = () => {
               transition={{ duration: 0.5, delay: 0.75 }}
               className="flex items-center gap-2"
             >
-              <div className="h-[12px] w-[12px] rounded-full bg-link" />
+              <div className="h-2 w-2 rounded-full bg-link" />
               <p className="font-semibold text-[18px] md:text-[9px] lg:text-[24px]">
                 Responsive Design
               </p>

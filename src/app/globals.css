@@ -40,6 +40,8 @@ body {
   background: var(--background); /* Page Background Color */
   color: var(--foreground); /* Text Color */
   font-family: var(--font-sans), sans-serif; /* Text Font */
+
+  /* cursor: url("/icon/git.svg"), auto;  */
 }
 
 @theme {
@@ -101,4 +103,15 @@ body {
 
 .powered-by-logo {
   @apply bg-secondary rounded-xl shadow-md flex flex-col items-center justify-center px-4 py-4 transition-transform hover:scale-110 hover:shadow-lg;
+}
+
+/* Hide scrollbar but still allow scrolling */
+.vertical-scroll-container {
+  overflow-y: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.vertical-scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
