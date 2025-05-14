@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import SectionContainer from "./SectionContainer";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   FaCode,
   FaLaptopCode,
@@ -10,7 +10,13 @@ import {
   FaPaintBrush,
 } from "react-icons/fa";
 
-const services = [
+type ServiceType = {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+};
+
+const services: ServiceType[] = [
   {
     icon: <FaLaptopCode size={52} />,
     title: "Responsive Frontend",
@@ -37,6 +43,19 @@ const services = [
 ];
 
 const Service = () => {
+  const [selectedService, setSelectedService] = useState<ServiceType | null>(
+    null
+  );
+
+  // Close modal with Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedService(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <SectionContainer background="w-full max-w-[1440px] mx-auto py-12">
       <div className="px-4 md:px-8 lg:px-[120px]">
@@ -57,9 +76,10 @@ const Service = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               whileHover={{ scale: 1.05 }}
-              className="group bg-primary transition-all duration-300 shadow-md shadow-amber-100/5 hover:shadow-lg hover:shadow-amber-300/20 rounded-xl p-6 text-center cursor-pointer"
+              className="group bg-primary transition-all duration-300 shadow-md hover:shadow-lg rounded-xl p-6 text-center cursor-pointer"
+              onClick={() => setSelectedService(service)}
             >
-              <div className="flex justify-center mb-4 text-link transition-transform duration-300 group-hover:scale-140">
+              <div className="flex justify-center mb-4 text-link group-hover:scale-110 transition-transform">
                 {service.icon}
               </div>
               <h3 className="text-xl text-textPrimary font-semibold mb-2 group-hover:text-amber-300">
@@ -72,6 +92,39 @@ const Service = () => {
           ))}
         </div>
       </div>
+
+      {/* MODAL OVERLAY */}
+      <AnimatePresence>
+        {selectedService && (
+          <motion.div
+            className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedService(null)}
+          >
+            <motion.div
+              className="bg-primary text-textPrimary p-8 rounded-2xl shadow-2xl max-w-sm w-full text-center relative"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="mb-4 text-link">{selectedService.icon}</div>
+              <h3 className="text-2xl font-bold mb-2">
+                {selectedService.title}
+              </h3>
+              <p className="text-sm">{selectedService.description}</p>
+              <button
+                onClick={() => setSelectedService(null)}
+                className="absolute top-3 right-3 text-textPrimary text-xl"
+              >
+                ×
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </SectionContainer>
   );
 };
