@@ -19,7 +19,7 @@ type ServiceType = {
 const services: ServiceType[] = [
   {
     icon: <FaLaptopCode size={52} />,
-    title: "Responsive Frontend",
+    title: "Responsive Front-end",
     description:
       "Web interfaces that work seamlessly across all devices and screen sizes.",
   },
@@ -31,7 +31,7 @@ const services: ServiceType[] = [
   },
   {
     icon: <FaCode size={52} />,
-    title: "Frontend Development",
+    title: "Front-end Development",
     description:
       "Clean, maintainable code using React, Next.js, and Tailwind CSS.",
   },

@@ -7,7 +7,7 @@ const HeroSection = () => {
     <SectionContainer background="mt-10">
       <div className="text-center max-w-[1440px] mx-auto">
         <p className="font-bold text-[40px] sm:text-[56px] md:text-[72px] lg:text-[96px] leading-tight hero">
-          Build Stunning Frontends.
+          Build Stunning Front-ends.
         </p>
         <p className="text-[#E4E7EB] text-[18px] sm:text-[24px] md:text-[30px] mt-4">
           Using React, Next.js & Tailwind CSS to deliver clean, accessible, and
