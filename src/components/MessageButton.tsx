@@ -2,44 +2,158 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import emailjs from "@emailjs/browser";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function MessageButton() {
   const [isAboveFooter, setIsAboveFooter] = useState(true);
+  const [footerHeight, setFooterHeight] = useState(0);
+  const [isDrawerOpen, setIsDrawerIsOpen] = useState(false);
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
   useEffect(() => {
     const footer = document.querySelector("footer");
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsAboveFooter(!entry.isIntersecting);
-      },
-      {
-        root: null,
-        threshold: 0,
-      }
-    );
+    if (footer) {
+      setFooterHeight(footer.clientHeight);
 
-    if (footer) observer.observe(footer);
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          setIsAboveFooter(!entry.isIntersecting);
+        },
+        {
+          root: null,
+          threshold: 0,
+        }
+      );
 
-    return () => {
-      if (footer) observer.unobserve(footer);
-    };
+      observer.observe(footer);
+
+      return () => observer.disconnect();
+    }
   }, []);
 
+  // const sendEmail = () => {
+  //   setIsSending(true);
+
+  //   emailjs
+  //     .send(
+  //       "service_l4lduxg",
+  //       "template_5p2dsys",
+  //       {
+  //         from_email: email,
+  //         message: message,
+  //       },
+  //       "LOsgwbpBX02yCLiH3"
+  //     )
+  //     .then(() => {
+  //       alert("Message sent!");
+  //       setEmail("");
+  //       setMessage("");
+  //       setIsDrawerIsOpen(false);
+  //     })
+  //     .catch((error) => {
+  //       console.error("EmailJS error:", JSON.stringify(error, null, 2));
+  //       alert("Failed to send message. Check console for details.");
+  //     })
+  //     .finally(() => {
+  //       setIsSending(false);
+  //     });
+  // };
+
+  const sendEmail = async () => {
+    setIsSending(true);
+
+    try {
+      await emailjs.send(
+        "service_l4lduxg",
+        "template_5p2dsys",
+        {
+          from_email: email,
+          message: message,
+        },
+        "LOsgwbpBX02yCLiH3"
+      );
+
+      toast.success("Message sent successfuly!");
+      setEmail("");
+      setMessage("");
+      setIsDrawerIsOpen(false);
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      toast.error("Failed to send message. Try again,");
+    } finally {
+      setIsSending(false);
+    }
+  };
+
   return (
-    <div
-      className={`fixed right-4 z-50 transition-all duration-300 ${
-        isAboveFooter ? "bottom-4" : "bottom-[calc(100vh-100px)]"
-      }`}
-    >
-      <button className="bg-blue-600 p-1 rounded-full shadow-lg hover:bg-blue-700">
-        <Image 
-            src="/icon/message.svg"
-            alt="Message"
-            height={45}
-            width={45}
+    <>
+      <div
+        className="fixed right-4 z-50 transition-all duration-300"
+        style={{
+          bottom: isAboveFooter ? "1rem" : `${footerHeight + 16}px`,
+        }}
+      >
+        <button
+          className="bg-[#64FFDA]/75 p-1 rounded-full shadow-lg hover:bg-[#64FFDA]"
+          onClick={() => setIsDrawerIsOpen(true)}
+        >
+          <Image src="/icon/message.svg" alt="Message" height={45} width={45} />
+        </button>
+      </div>
+
+      {/* Drawer */}
+      <div
+        className={`fixed top-0 right-0 h-full w-full sm:w-full md:w-full lg:w-1/4 bg-[#2A2F3B] shadow-lg z-50 transform transition-transform duration-300 ${
+          isDrawerOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex justify-between items-center p-4 border-b">
+          <h2 className="title font-bold">Send a Message</h2>
+          <button
+            onClick={() => setIsDrawerIsOpen(false)}
+            className="description"
+          >
+            &times;
+          </button>
+        </div>
+        <div className="p-4 space-y-4">
+          <input
+            type="email"
+            placeholder="Your Email"
+            required
+            className="w-full p-2 border rounded"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <textarea
+            placeholder="Your Message"
+            rows={5}
+            required
+            className="w-full p-2 border rounded"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+          <button
+            onClick={sendEmail}
+            disabled={isSending}
+            className="w-full bg-[#64FFDA]/75 py-2 text-[#1B263B] rounded hover:font-bold hover:bg-[#64FFDA]"
+          >
+            {isSending ? "Sending..." : "Submit"}
+          </button>
+        </div>
+      </div>
+
+      {/* Overlay */}
+      {isDrawerOpen && (
+        <div
+          className="fixed inset-0 bg-[#1b263b]/85 bg-opacity-50 z-40"
+          onClick={() => setIsDrawerIsOpen(false)}
         />
-      </button>
-    </div>
+      )}
+    </>
   );
 }
