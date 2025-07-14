@@ -13,7 +13,7 @@ type ImageContainerProps = {
   image: string;
   work?: Work[];
   imageSize?: number;
-  containerClassName?: string; // <-- new prop
+  containerClassName?: string;
 };
 
 const ImageContainer: React.FC<ImageContainerProps> = ({
@@ -22,7 +22,7 @@ const ImageContainer: React.FC<ImageContainerProps> = ({
   image,
   work,
   imageSize = 80,
-  containerClassName = "", // <-- default empty
+  containerClassName = "",
 }) => {
   return (
     <div
