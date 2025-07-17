@@ -25,11 +25,11 @@ export default function Home() {
         <Development />
       </section>
 
-      <section id="about">
+      <section id="project">
         <Project />
       </section>
 
-      <section id="about">
+      <section id="service">
         <Services />
       </section>
     </div>

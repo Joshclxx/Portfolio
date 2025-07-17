@@ -1,6 +1,7 @@
 import React from "react";
 import SectionContainer from "./SectionContainer";
 import ImageContainer from "./ImageContainer";
+import { motion } from "framer-motion";
 
 const Development = () => {
   const items = [
@@ -27,12 +28,24 @@ const Development = () => {
       {/* SECTION CONTAINER */}
       <div className="w-full h-auto py-5">
         {/* SECTION TITLE */}
-        <p className="title text-center text-white pt-6">Development Toolkit</p>
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: false, amount: 0.5 }}
+          transition={{ duration: 0.4 }}
+          className="title text-center text-white pt-6"
+        >
+          Development Toolkit
+        </motion.div>
 
         {/* IMAGE */}
         <div className="max-w-[1440px] w-full mx-auto grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-4 items-center px-4 py-5">
           {items.map((item, index) => (
-            <div
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: false, amount: 0.5 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
               key={index}
               className="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-3"
             >
@@ -42,7 +55,7 @@ const Development = () => {
                 imageSize={80}
                 containerClassName="bg-[#3F4552] rounded-xl h-[200px] px-2 shadow-md"
               />
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

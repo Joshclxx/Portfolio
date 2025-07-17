@@ -35,34 +35,6 @@ export default function MessageButton() {
     }
   }, []);
 
-  // const sendEmail = () => {
-  //   setIsSending(true);
-
-  //   emailjs
-  //     .send(
-  //       "service_l4lduxg",
-  //       "template_5p2dsys",
-  //       {
-  //         from_email: email,
-  //         message: message,
-  //       },
-  //       "LOsgwbpBX02yCLiH3"
-  //     )
-  //     .then(() => {
-  //       alert("Message sent!");
-  //       setEmail("");
-  //       setMessage("");
-  //       setIsDrawerIsOpen(false);
-  //     })
-  //     .catch((error) => {
-  //       console.error("EmailJS error:", JSON.stringify(error, null, 2));
-  //       alert("Failed to send message. Check console for details.");
-  //     })
-  //     .finally(() => {
-  //       setIsSending(false);
-  //     });
-  // };
-
   const sendEmail = async () => {
     setIsSending(true);
 
@@ -71,7 +43,7 @@ export default function MessageButton() {
         "service_l4lduxg",
         "template_5p2dsys",
         {
-          from_email: email,
+          email: email,
           message: message,
         },
         "LOsgwbpBX02yCLiH3"
