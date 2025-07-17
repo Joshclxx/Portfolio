@@ -52,7 +52,7 @@ const HeroSection = () => {
         className="mt-6 flex justify-center items-center gap-4"
       >
         <motion.a
-          href="/pdf/cv-colobong.pdf"
+          href="/pdf/Colobong_CV.pdf"
           download
           className="w-[164px] h-[42px] border-1 border-[#64FFDA] bg-[#64FFDA]/45 rounded-lg flex items-center justify-center hover:bg-transparent font-bold"
           initial={{ opacity: 0, y: 20 }}
