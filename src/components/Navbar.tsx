@@ -8,7 +8,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="w-full sticky top-0 z-50 bg-black/65">
+    <nav className="w-full sticky top-0 z-50">
       <div className="px-4 md:px-8 lg:px-[120px]">
         {/* Top Row */}
         <div className="flex justify-between items-center py-4">

@@ -44,3 +44,33 @@ html {
 .description {
   @apply text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px];
 }
+
+/* SAMPLE */
+/* .hero-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><pattern id='grid' width='10' height='10' patternUnits='userSpaceOnUse'><path d='M 10 0 L 0 0 0 10' fill='none' stroke='%23ffffff' stroke-width='0.1' opacity='0.1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
+  opacity: 0.3;
+  z-index: 0;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+.floating-box {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(45deg, #00d4ff33, #0099cc33);
+  border: 1px solid #00d4ff66;
+  border-radius: 8px;
+  animation: floating 6s ease-in-out infinite;
+} */
