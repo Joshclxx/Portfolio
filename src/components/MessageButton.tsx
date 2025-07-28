@@ -69,11 +69,8 @@ export default function MessageButton() {
           bottom: isAboveFooter ? "1rem" : `${footerHeight + 16}px`,
         }}
       >
-        <button
-          className="bg-[#64FFDA]/75 p-1 rounded-full shadow-lg hover:bg-[#64FFDA]"
-          onClick={() => setIsDrawerIsOpen(true)}
-        >
-          <Image src="/icon/message.svg" alt="Message" height={45} width={45} />
+        <button onClick={() => setIsDrawerIsOpen(true)}>
+          <Image src="/icon/chat_me.png" alt="Message" height={80} width={80} />
         </button>
       </div>
 
